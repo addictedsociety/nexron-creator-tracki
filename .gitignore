@@ -1,0 +1,39 @@
+# --- Global ---
+*.log
+logs/
+tmp/
+temp/
+
+# --- Env ---
+.env
+.env.*.local
+.env.development
+.env.production
+.env.test
+
+# --- DB ---
+*.db
+*.sqlite
+*.pgsql
+*.sql
+*.dump
+
+# --- Docker ---
+docker-compose.override.yml
+docker-compose.*.yml
+.docker/
+.dockerignore
+
+# --- Editor / IDE ---
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# --- Betriebssystem ---
+.DS_Store
+Thumbs.db
+
+# --- Shadcn / Build artifacts ---
+.shadcn/
+node_modules
