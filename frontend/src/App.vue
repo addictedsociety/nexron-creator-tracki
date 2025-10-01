@@ -1,16 +1,15 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
+import { Moon, Sun } from 'lucide-vue-next'
+import logo from '@/assets/tracki_logo_lg.svg'
 
 const isDark = ref(false)
-
 onMounted(() => {
-  // initial: bevorzugtes Theme / gespeichertes Theme
   const prefers = window.matchMedia('(prefers-color-scheme: dark)').matches
   const stored = localStorage.getItem('theme')
   isDark.value = stored ? stored === 'dark' : prefers
   document.documentElement.classList.toggle('dark', isDark.value)
 })
-
 function toggleTheme() {
   isDark.value = !isDark.value
   document.documentElement.classList.toggle('dark', isDark.value)
@@ -20,49 +19,44 @@ function toggleTheme() {
 
 <template>
   <div class="min-h-screen bg-background text-foreground">
-    <header class="border-b border-border">
-      <div class="mx-auto max-w-5xl px-6 py-4 flex items-center justify-between">
+    <header class="border-b border-border sticky top-0 z-40 bg-background/80 backdrop-blur">
+      <div class="mx-auto max-w-6xl px-4 sm:px-6 py-3 flex items-center justify-between">
+        <!-- Logo + Title -->
         <div class="flex items-center gap-3">
-          <div class="h-3 w-3 rounded-full bg-primary animate-pulse"></div>
-          <h1 class="text-xl font-semibold">Vite + Vue + Tailwind v4</h1>
+          <router-link to="/" class="flex items-center gap-2">
+            <img :src="logo" alt="Tracki" class="h-8 w-auto" />
+          </router-link>
         </div>
 
-        <nav class="flex items-center gap-4">
-          <router-link
-            to="/"
-            class="px-3 py-1 rounded-md hover:bg-accent hover:text-accent-foreground transition"
-            :class="$route.path === '/' ? 'bg-secondary text-secondary-foreground' : ''"
-          >
-            Home
+        <!-- Nav (scrollable on mobile) -->
+        <nav class="flex items-center gap-1 overflow-x-auto">
+          <router-link to="/" class="px-3 py-1 rounded-md hover:bg-accent hover:text-accent-foreground transition whitespace-nowrap"
+            :class="$route.path === '/' ? 'bg-secondary text-secondary-foreground' : ''">
+            Dashboard
           </router-link>
-          <router-link
-            to="/about"
-            class="px-3 py-1 rounded-md hover:bg-accent hover:text-accent-foreground transition"
-            :class="$route.path === '/about' ? 'bg-secondary text-secondary-foreground' : ''"
-          >
-            About
+          <router-link to="/workout" class="px-3 py-1 rounded-md hover:bg-accent hover:text-accent-foreground transition whitespace-nowrap">
+            Workout
+          </router-link>
+          <router-link to="/user" class="px-3 py-1 rounded-md hover:bg-accent hover:text-accent-foreground transition whitespace-nowrap">
+            User
           </router-link>
 
           <button
             class="ml-2 inline-flex items-center gap-2 rounded-md border border-border bg-secondary text-secondary-foreground hover:bg-accent hover:text-accent-foreground px-3 py-1 transition"
-            @click="toggleTheme"
-            :aria-pressed="isDark"
-          >
-            <span v-if="!isDark">🌙 Dark</span>
-            <span v-else>☀️ Light</span>
+            @click="toggleTheme" :aria-pressed="isDark">
+            <span v-if="!isDark"><Moon class="h-4 w-4" /></span>
+            <span v-else><Sun class="h-4 w-4" /></span>
           </button>
         </nav>
       </div>
     </header>
 
-    <main class="mx-auto max-w-5xl px-6 py-8">
+    <main class="mx-auto max-w-6xl px-4 sm:px-6 py-6">
       <router-view />
     </main>
 
-    <footer class="mx-auto max-w-5xl px-6 py-6 text-sm text-muted-foreground border-t border-border">
-      Tailwind-Farben: <code class="mx-2 rounded bg-muted px-2 py-1">bg-background</code>
-      <code class="mx-2 rounded bg-primary text-primary-foreground px-2 py-1">bg-primary</code>
-      <code class="mx-2 rounded bg-card text-card-foreground px-2 py-1">bg-card</code>
+    <footer class="mx-auto max-w-6xl px-4 sm:px-6 py-6 text-xs sm:text-sm text-muted-foreground border-t border-border">
+      © {{ new Date().getFullYear() }} Tracki
     </footer>
   </div>
 </template>
