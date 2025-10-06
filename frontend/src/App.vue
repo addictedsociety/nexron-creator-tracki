@@ -2,7 +2,9 @@
 import { ref, onMounted, computed } from 'vue'
 import { useRoute } from 'vue-router'
 import { SignedIn, SignedOut, SignInButton, UserButton, SignIn } from '@clerk/vue'
-import { Moon, Sun } from 'lucide-vue-next'
+import { Heart, Navigation, Moon, Sun, Linkedin, Instagram, Github, BadgeCheck, SquareChartGantt, Dumbbell,UserRound } from 'lucide-vue-next'
+import { DropdownMenu, DropdownMenuTrigger, DropdownMenuContent, DropdownMenuItem, DropdownMenuSeparator, DropdownMenuLabel } from '@/components/ui/dropdown-menu'
+
 import logo from '@/assets/tracki_logo_lg.svg'
 
 const route = useRoute()
@@ -26,56 +28,96 @@ const isActive = (p: string) => computed(() => route.path === p)
 
 <template>
   <div class="min-h-screen bg-background text-foreground">
-    <header class="border-b border-border sticky top-0 z-40 bg-background/80 backdrop-blur">
-      <div class="mx-auto max-w-6xl px-4 sm:px-6 py-3 flex items-center justify-between">
-        <div class="flex items-center gap-3">
-          <RouterLink to="/" class="flex items-center gap-2">
-            <img :src="logo" alt="Tracki" class="h-8 w-auto" />
-          </RouterLink>
-        </div>
+    <header class="border-b border-border sticky top-0 z-40 bg-background/75 backdrop-blur">
+      <div class="mx-auto max-w-6xl px-4 sm:px-6 py-2 flex items-center justify-between gap-4">
+        <!-- Logo -->
+        <RouterLink to="/" class="flex items-center gap-2 shrink-0">
+          <img :src="logo" alt="Tracki" class="h-8 w-auto sm:h-10" />
+          <span class="sr-only">Tracki Home</span>
+        </RouterLink>
 
-        <nav class="flex items-center gap-2 overflow-x-auto">
+        <!-- Nav: 3 gleich große Buttons -->
+        <nav
+          class="flex items-center gap-2 overflow-x-auto snap-x snap-mandatory -mx-2 px-2 py-1
+                scrollbar-none"
+        >
+          <!-- Button Base-Klasse: gleicht Größe & Verhalten an -->
+          <!-- w-11 h-11 = 44px touch; grid center; rounded-xl; transition -->
           <RouterLink
             to="/"
-            class="px-3 py-1 rounded-md hover:bg-accent hover:text-accent-foreground transition whitespace-nowrap"
-            :class="isActive('/').value ? 'bg-secondary text-secondary-foreground' : ''"
+            class="w-11 h-11 grid place-items-center rounded-xl
+                  bg-secondary text-secondary-foreground
+                  hover:bg-accent hover:text-accent-foreground
+                  transition-all duration-200 snap-start
+                  aria-[current=page]:ring-2 aria-[current=page]:ring-accent"
+            :aria-current="isActive('/').value ? 'page' : undefined"
           >
-            Dashboard
+            <SquareChartGantt class="h-5 w-5 text-current" />
           </RouterLink>
+
           <RouterLink
             to="/workout"
-            class="px-3 py-1 rounded-md hover:bg-accent hover:text-accent-foreground transition whitespace-nowrap"
-            :class="isActive('/workout').value ? 'bg-secondary text-secondary-foreground' : ''"
+            class="w-11 h-11 grid place-items-center rounded-xl
+                  bg-secondary text-secondary-foreground
+                  hover:bg-accent hover:text-accent-foreground
+                  transition-all duration-200 snap-start
+                  aria-[current=page]:ring-2 aria-[current=page]:ring-accent"
+            :aria-current="isActive('/workout').value ? 'page' : undefined"
           >
-            Workout
-          </RouterLink>
-          <RouterLink
-            to="/user"
-            class="px-3 py-1 rounded-md hover:bg-accent hover:text-accent-foreground transition whitespace-nowrap"
-            :class="isActive('/user').value ? 'bg-secondary text-secondary-foreground' : ''"
-          >
-            User
+            <Dumbbell class="h-5 w-5 text-current" />
           </RouterLink>
 
-          <button
-            class="ml-2 inline-flex items-center gap-2 rounded-md border border-border bg-secondary text-secondary-foreground hover:bg-accent hover:text-accent-foreground px-3 py-1 transition"
-            @click="toggleTheme" :aria-pressed="isDark"
-          >
-            <span v-if="!isDark"><Moon class="h-4 w-4" /></span>
-            <span v-else><Sun class="h-4 w-4" /></span>
-          </button>
+          <!-- Auth + Theme: Dropdown (shadcn-vue) --><DropdownMenu>
+          <DropdownMenuTrigger as-child>
+            <button
+              class="w-11 h-11 grid place-items-center rounded-xl
+                    border border-border
+                    bg-secondary text-secondary-foreground
+                    hover:bg-accent hover:text-accent-foreground
+                    transition-all duration-200"
+              aria-label="Account & Einstellungen"
+            >
+              <UserRound class="h-5 w-5 text-current" />
+            </button>
+          </DropdownMenuTrigger>
 
-          <!-- Auth UI -->
-          <SignedOut>
-            <SignInButton mode="modal">
-              <button class="px-3 py-1 rounded-md border border-border hover:bg-accent transition">
-                Sign in
-              </button>
-            </SignInButton>
-          </SignedOut>
-          <SignedIn>
-            <UserButton />
-          </SignedIn>
+          <DropdownMenuContent align="end" class="min-w-56">
+            <DropdownMenuLabel>Account</DropdownMenuLabel>
+            <DropdownMenuSeparator />
+
+            <SignedOut>
+              <DropdownMenuItem as-child>
+                <SignInButton mode="modal">
+                  <button class="w-full flex items-center gap-2 text-left">
+                    <LogIn class="h-4 w-4 text-muted-foreground" />
+                    <span>Sign in</span>
+                  </button>
+                </SignInButton>
+              </DropdownMenuItem>
+            </SignedOut>
+
+            <SignedIn>
+              <DropdownMenuItem class="flex items-center justify-between gap-2">
+                <div class="flex items-center gap-2">
+                  <User class="h-4 w-4 text-muted-foreground" />
+                  <span>Profil</span>
+                </div>
+                <UserButton />
+              </DropdownMenuItem>
+            </SignedIn>
+
+            <DropdownMenuSeparator />
+            <DropdownMenuLabel>Darstellung</DropdownMenuLabel>
+            <DropdownMenuItem class="flex items-center justify-between gap-2" @click="toggleTheme">
+              <div class="flex items-center gap-2">
+                <Palette class="h-4 w-4 text-muted-foreground" />
+                <span>{{ isDark ? 'Dark Mode' : 'Light Mode' }}</span>
+              </div>
+              <component :is="isDark ? Moon : Sun" class="h-4 w-4 text-current" />
+            </DropdownMenuItem>
+          </DropdownMenuContent>
+        </DropdownMenu>
+
         </nav>
       </div>
     </header>
@@ -92,8 +134,71 @@ const isActive = (p: string) => computed(() => route.path === p)
       </SignedIn>
     </main>
 
-    <footer class="mx-auto max-w-6xl px-4 sm:px-6 py-6 text-xs sm:text-sm text-muted-foreground border-t border-border">
-      © {{ new Date().getFullYear() }} Tracki
+    <footer
+      class="w-full bg-background border-t text-sm text-muted-foreground rounded-lg shadow-inner shadow-indigo-500/50 dark:shadow-indigo-800/20">
+      <div class="max-w-screen-xl mx-auto px-4 sm:px-6 py-4">
+
+        <!-- Mobile: Spalten untereinander | ab md: nebeneinander -->
+        <div class="flex flex-col md:flex-row gap-6 md:gap-0 md:divide-x md:divide-border">
+
+          <!-- Logo -->
+          <div class="w-full md:basis-1/4 md:pr-6 text-center md:text-left">
+            <span class="inline-flex items-center justify-center md:justify-start gap-2">
+              <Heart class="w-4 h-4 text-red-500" />
+              <span>Made with love by Nexron</span>
+            </span>
+          </div>
+
+          <!-- Navigation -->
+          <div class="w-full md:basis-1/4 md:px-6 text-center md:text-left">
+            <div class="flex items-center justify-center md:justify-start gap-2 mb-2">
+              <Navigation class="w-4 h-4" />
+              <h2 class="font-semibold text-foreground">Navigation</h2>
+            </div>
+            <div class="flex flex-col gap-1">
+              <RouterLink to="/" class="py-1 hover:underline hover:text-foreground transition-colors">Dashboard
+              </RouterLink>
+              <RouterLink to="/workout" class="py-1 hover:underline hover:text-foreground transition-colors">Workout
+              </RouterLink>
+            </div>
+          </div>
+
+          <!-- Socials -->
+          <div class="w-full md:basis-1/4 md:px-6 text-center md:text-left">
+            <div class="flex items-center justify-center md:justify-start gap-2 mb-2">
+              <BadgeCheck class="w-4 h-4" />
+              <h2 class="font-semibold text-foreground">Socials</h2>
+            </div>
+            <div class="flex flex-col gap-1">
+              <a href="https://www.linkedin.com/in/jonas-glatz-ki/" target="_blank"
+                class="py-1 hover:underline hover:text-foreground transition-colors inline-flex items-center justify-center md:justify-start gap-2">
+                <Linkedin class="w-4 h-4" /> <span>LinkedIn</span>
+              </a>
+              <a href="https://www.instagram.com/nexronstudios/" target="_blank"
+                class="py-1 hover:underline hover:text-foreground transition-colors inline-flex items-center justify-center md:justify-start gap-2">
+                <Instagram class="w-4 h-4" /> <span>Instagram</span>
+              </a>
+              <a href="https://github.com/addictedsociety" target="_blank"
+                class="py-1 hover:underline hover:text-foreground transition-colors inline-flex items-center justify-center md:justify-start gap-2">
+                <Github class="w-4 h-4" /> <span>GitHub</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Copyright / Legal -->
+          <div class="w-full md:basis-1/4 md:pl-6 text-center md:text-left">
+            <h2 class="font-semibold text-foreground">&copy; 2025 CreatorHub</h2>
+            <div class="flex flex-col gap-1">
+              <RouterLink to="/impressum" class="py-1 hover:underline hover:text-foreground transition-colors">Impressum
+              </RouterLink>
+              <RouterLink to="/datenschutz" class="py-1 hover:underline hover:text-foreground transition-colors">
+                Datenschutz</RouterLink>
+            </div>
+          </div>
+
+        </div>
+      </div>
     </footer>
+
   </div>
 </template>

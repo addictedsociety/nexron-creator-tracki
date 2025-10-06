@@ -63,12 +63,7 @@
       "version": 202,
       "versionNonce": 1010950010,
       "isDeleted": false,
-      "boundElements": [
-        {
-          "id": "XC29M_oIqavyBu5eZpukl",
-          "type": "arrow"
-        }
-      ],
+      "boundElements": [],
       "updated": 1759429780778,
       "link": null,
       "locked": false
@@ -13599,8 +13594,8 @@
       "index": "b6t",
       "roundness": null,
       "seed": 125151855,
-      "version": 92,
-      "versionNonce": 806072104,
+      "version": 93,
+      "versionNonce": 1845392126,
       "isDeleted": false,
       "boundElements": [
         {
@@ -13608,7 +13603,7 @@
           "id": "ENd07GZAdkaOfi7ouGcY6"
         }
       ],
-      "updated": 1759267158666,
+      "updated": 1759782972976,
       "link": null,
       "locked": false,
       "points": [
@@ -16787,9 +16782,9 @@
     {
       "id": "V16LvvCvm5Qe40LeK3JW2",
       "type": "text",
-      "x": 1084.175710942519,
-      "y": 1343.2367264888662,
-      "width": 1712.6666768391922,
+      "x": 1018.3423776091856,
+      "y": 1297.68100139121,
+      "width": 947.1110534667963,
       "height": 1995,
       "angle": 0,
       "strokeColor": "#1e1e1e",
@@ -16804,11 +16799,11 @@
       "index": "b90",
       "roundness": null,
       "seed": 627042856,
-      "version": 764,
-      "versionNonce": 85421216,
+      "version": 830,
+      "versionNonce": 1637367550,
       "isDeleted": false,
       "boundElements": [],
-      "updated": 1759353325314,
+      "updated": 1759783240380,
       "link": null,
       "locked": false,
       "text": "Techstack\n----------------------\n\n\n-Frontend\n----------------------\nVue, \nTailwind, -> Styling\nShadcn, -> Components\nLucid -> Icons\nvue-router, -> Routing\nPWA -> WebApp\n\n-Backend\n----------------------\nNest, \nDocker, \nPostgres\n-Clerk -> Anmeldung\n\n",
@@ -16844,7 +16839,7 @@
       "version": 136,
       "versionNonce": 1851520826,
       "isDeleted": false,
-      "boundElements": null,
+      "boundElements": [],
       "updated": 1759429808244,
       "link": null,
       "locked": false,
