@@ -25,11 +25,16 @@
         "type": 3
       },
       "seed": 1858464079,
-      "version": 252,
-      "versionNonce": 1296445224,
+      "version": 259,
+      "versionNonce": 745678694,
       "isDeleted": false,
-      "boundElements": [],
-      "updated": 1759267158643,
+      "boundElements": [
+        {
+          "id": "CR6frter7QCLyfL4M24TY",
+          "type": "arrow"
+        }
+      ],
+      "updated": 1759429805058,
       "link": null,
       "locked": false
     },
@@ -55,11 +60,16 @@
         "type": 3
       },
       "seed": 714860559,
-      "version": 201,
-      "versionNonce": 886421336,
+      "version": 202,
+      "versionNonce": 1010950010,
       "isDeleted": false,
-      "boundElements": [],
-      "updated": 1759267158643,
+      "boundElements": [
+        {
+          "id": "XC29M_oIqavyBu5eZpukl",
+          "type": "arrow"
+        }
+      ],
+      "updated": 1759429780778,
       "link": null,
       "locked": false
     },
@@ -161,16 +171,20 @@
         "type": 3
       },
       "seed": 1365703457,
-      "version": 182,
-      "versionNonce": 504968815,
+      "version": 187,
+      "versionNonce": 1250339046,
       "isDeleted": false,
       "boundElements": [
         {
           "type": "text",
           "id": "Cqk83tCLC52GbsA5BY-pN"
+        },
+        {
+          "id": "CR6frter7QCLyfL4M24TY",
+          "type": "arrow"
         }
       ],
-      "updated": 1759176309074,
+      "updated": 1759429805057,
       "link": null,
       "locked": false
     },
@@ -1476,7 +1490,7 @@
       "width": 1508.736979263817,
       "height": 192.0261157323581,
       "angle": 0,
-      "strokeColor": "#1e1e1e",
+      "strokeColor": "#e03131",
       "backgroundColor": "transparent",
       "fillStyle": "solid",
       "strokeWidth": 2,
@@ -1488,11 +1502,11 @@
       "index": "ap",
       "roundness": null,
       "seed": 641820399,
-      "version": 280,
-      "versionNonce": 1097377112,
+      "version": 281,
+      "versionNonce": 503862138,
       "isDeleted": false,
       "boundElements": [],
-      "updated": 1759267158648,
+      "updated": 1759429763958,
       "link": null,
       "locked": false,
       "points": [
@@ -16806,6 +16820,104 @@
       "originalText": "Techstack\n----------------------\n\n\n-Frontend\n----------------------\nVue, \nTailwind, -> Styling\nShadcn, -> Components\nLucid -> Icons\nvue-router, -> Routing\nPWA -> WebApp\n\n-Backend\n----------------------\nNest, \nDocker, \nPostgres\n-Clerk -> Anmeldung\n\n",
       "autoResize": false,
       "lineHeight": 1.25
+    },
+    {
+      "id": "CR6frter7QCLyfL4M24TY",
+      "type": "arrow",
+      "x": 1043.4959287895867,
+      "y": 272.1280057245235,
+      "width": 200.57545524476086,
+      "height": 454.32095633612744,
+      "angle": 0,
+      "strokeColor": "#e03131",
+      "backgroundColor": "transparent",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "strokeStyle": "solid",
+      "roughness": 1,
+      "opacity": 100,
+      "groupIds": [],
+      "frameId": null,
+      "index": "b92",
+      "roundness": null,
+      "seed": 172465914,
+      "version": 136,
+      "versionNonce": 1851520826,
+      "isDeleted": false,
+      "boundElements": null,
+      "updated": 1759429808244,
+      "link": null,
+      "locked": false,
+      "points": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          -169.79396920643637
+        ],
+        [
+          -200.57545524476086,
+          -169.79396920643637
+        ],
+        [
+          -200.57545524476086,
+          284.52698712969107
+        ],
+        [
+          -80.82234245179211,
+          284.52698712969107
+        ]
+      ],
+      "lastCommittedPoint": null,
+      "startBinding": {
+        "elementId": "AG5WE0N_fX-RjqGiPMEvy",
+        "fixedPoint": [
+          0.49877508875676857,
+          -0.07357994017771431
+        ],
+        "focus": 0,
+        "gap": 0
+      },
+      "endBinding": {
+        "elementId": "PSDPYE9TRnx20QOsxYtNg",
+        "fixedPoint": [
+          -0.007458808138823716,
+          0.3250955531844913
+        ],
+        "focus": 0,
+        "gap": 0
+      },
+      "startArrowhead": null,
+      "endArrowhead": "arrow",
+      "elbowed": true,
+      "fixedSegments": [
+        {
+          "index": 2,
+          "start": [
+            0,
+            -169.79396920643637
+          ],
+          "end": [
+            -200.57545524476086,
+            -169.79396920643637
+          ]
+        },
+        {
+          "index": 3,
+          "start": [
+            -200.57545524476086,
+            -169.79396920643637
+          ],
+          "end": [
+            -200.57545524476086,
+            284.52698712969107
+          ]
+        }
+      ],
+      "startIsSpecial": false,
+      "endIsSpecial": false
     }
   ],
   "appState": {
