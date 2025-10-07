@@ -89,7 +89,7 @@ const userName = computed(() => {
     </div>
 
     <!-- Timer Card -->
-    <Card class="w-full">
+    <Card class="w-full shadow-lg shadow-indigo-500/20">
 
       <CardHeader class="text-center">
         <CardTitle class="text-lg sm:text-xl">TIMER</CardTitle>
@@ -136,7 +136,7 @@ const userName = computed(() => {
     </Card>
 
     <!-- Current Workout Card -->
-    <Card class="w-full">
+    <Card class="w-full shadow-lg shadow-indigo-500/20">
       <CardHeader>
         <CardTitle class="text-lg sm:text-xl">{{ currentWorkout.name }}</CardTitle>
         <CardDescription>{{ currentWorkout.exercise }}</CardDescription>
@@ -163,7 +163,7 @@ const userName = computed(() => {
     </Card>
 
     <!-- Weight Progress Card -->
-    <Card class="w-full">
+    <Card class="w-full shadow-lg shadow-indigo-500/20">
       <CardHeader>
         <CardTitle class="text-lg sm:text-xl flex items-center gap-2">
           <BarChart3 class="h-5 w-5" />
@@ -202,7 +202,7 @@ const userName = computed(() => {
     </Card>
 
     <!-- Weekly Stats Card -->
-    <Card class="w-full">
+    <Card class="w-full shadow-lg shadow-indigo-500/20">
       <CardHeader>
         <CardTitle class="text-lg sm:text-xl flex items-center gap-2">
           <Calendar class="h-5 w-5" />
