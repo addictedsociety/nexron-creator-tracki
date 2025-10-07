@@ -4099,10 +4099,10 @@
     {
       "id": "gitwNuVDnkTRiJJq19_UM",
       "type": "arrow",
-      "x": 2882.9661871348994,
-      "y": 66.93205422250458,
-      "width": 66.93334461772474,
-      "height": 314.9650963830445,
+      "x": 2890.9520675974823,
+      "y": 60.624870282245354,
+      "width": 58.947464155141915,
+      "height": 321.27228032330373,
       "angle": 0,
       "strokeColor": "#e03131",
       "backgroundColor": "transparent",
@@ -4116,11 +4116,11 @@
       "index": "b1n",
       "roundness": null,
       "seed": 813466511,
-      "version": 150,
-      "versionNonce": 1852337496,
+      "version": 277,
+      "versionNonce": 915102103,
       "isDeleted": false,
       "boundElements": [],
-      "updated": 1759267158654,
+      "updated": 1759871792251,
       "link": null,
       "locked": false,
       "points": [
@@ -4130,26 +4130,26 @@
         ],
         [
           0,
-          152.41925095338047
+          117.64413575648166
         ],
         [
-          66.93334461772474,
-          152.41925095338047
+          58.947464155141915,
+          117.64413575648166
         ],
         [
-          66.93334461772474,
-          314.9650963830445
+          58.947464155141915,
+          321.27228032330373
         ]
       ],
       "lastCommittedPoint": null,
       "startBinding": {
         "elementId": "2xaGAY2yEhO54Ytn2nUD-",
         "fixedPoint": [
-          0.14499264108434687,
-          1.1512659447628355
+          0.49933057704689926,
+          1.05
         ],
         "focus": 0,
-        "gap": 1
+        "gap": 0
       },
       "endBinding": {
         "elementId": "0PZ1rAT68Hkz96NQlsVUo",
@@ -4163,17 +4163,29 @@
       "startArrowhead": null,
       "endArrowhead": "arrow",
       "elbowed": true,
-      "fixedSegments": null,
-      "startIsSpecial": null,
-      "endIsSpecial": null
+      "fixedSegments": [
+        {
+          "index": 2,
+          "start": [
+            0,
+            117.64413575648166
+          ],
+          "end": [
+            58.947464155141915,
+            117.64413575648166
+          ]
+        }
+      ],
+      "startIsSpecial": false,
+      "endIsSpecial": false
     },
     {
       "id": "0Ezl0FcvaeYbdmyTgyS8T",
       "type": "arrow",
-      "x": 3058.3403345144557,
-      "y": 79.41294105838188,
-      "width": 5.964319935232197,
-      "height": 301.8115972372457,
+      "x": 3064.2955100491345,
+      "y": 67.62150833054147,
+      "width": 0.009144400553395826,
+      "height": 313.6030299650861,
       "angle": 0,
       "strokeColor": "#e03131",
       "backgroundColor": "transparent",
@@ -4187,11 +4199,11 @@
       "index": "b1o",
       "roundness": null,
       "seed": 1691091183,
-      "version": 35,
-      "versionNonce": 92354648,
+      "version": 172,
+      "versionNonce": 1806581591,
       "isDeleted": false,
       "boundElements": [],
-      "updated": 1759267158653,
+      "updated": 1759871802191,
       "link": null,
       "locked": false,
       "points": [
@@ -4200,20 +4212,20 @@
           0
         ],
         [
-          0,
-          141.37391282110883
-        ],
-        [
-          5.964319935232197,
-          141.37391282110883
-        ],
-        [
-          5.964319935232197,
-          301.8115972372457
+          0.009144400553395826,
+          313.6030299650861
         ]
       ],
       "lastCommittedPoint": null,
-      "startBinding": null,
+      "startBinding": {
+        "elementId": "wv0t1NUNibmX50KdSgigR",
+        "fixedPoint": [
+          0.49933057704689926,
+          1.05
+        ],
+        "focus": 0,
+        "gap": 0
+      },
       "endBinding": {
         "elementId": "9Sky0pJPcQB9nZLXFm6Ot",
         "fixedPoint": [
@@ -4233,8 +4245,8 @@
     {
       "id": "2xaGAY2yEhO54Ytn2nUD-",
       "type": "text",
-      "x": 2861.306840019159,
-      "y": -48.194540253778996,
+      "x": 2816.360873086651,
+      "y": -44.375129717754646,
       "width": 149.3823890216631,
       "height": 100,
       "angle": 0,
@@ -4250,8 +4262,8 @@
       "index": "b1p",
       "roundness": null,
       "seed": 1083452193,
-      "version": 152,
-      "versionNonce": 2022644008,
+      "version": 193,
+      "versionNonce": 1745945431,
       "isDeleted": false,
       "boundElements": [
         {
@@ -4259,7 +4271,7 @@
           "type": "arrow"
         }
       ],
-      "updated": 1759267158653,
+      "updated": 1759871791824,
       "link": null,
       "locked": false,
       "text": "Workoutreihe\nerstellen mit\nmehreren\nÜbungen",
@@ -4275,8 +4287,8 @@
     {
       "id": "wv0t1NUNibmX50KdSgigR",
       "type": "text",
-      "x": 3021.937897081272,
-      "y": -44.650830536646026,
+      "x": 2989.704315538303,
+      "y": -37.378491669458526,
       "width": 149.3823890216631,
       "height": 100,
       "angle": 0,
@@ -4292,11 +4304,16 @@
       "index": "b1q",
       "roundness": null,
       "seed": 1287924495,
-      "version": 246,
-      "versionNonce": 2124481112,
+      "version": 375,
+      "versionNonce": 316743223,
       "isDeleted": false,
-      "boundElements": [],
-      "updated": 1759267158654,
+      "boundElements": [
+        {
+          "id": "0Ezl0FcvaeYbdmyTgyS8T",
+          "type": "arrow"
+        }
+      ],
+      "updated": 1759871802191,
       "link": null,
       "locked": false,
       "text": "Gruppieren der\nWorkout zb in\nPush / Pull /\nBeine",
@@ -15525,10 +15542,10 @@
     {
       "id": "OD5E_Iz8kUR3dHpZW-uAx",
       "type": "arrow",
-      "x": 3805.568144374211,
-      "y": 2276.915983088666,
-      "width": 257.7320021314499,
-      "height": 3.1565412121544796,
+      "x": 3996.227812342961,
+      "y": 2274.2424601394473,
+      "width": 448.3916701001999,
+      "height": 0.4830182629357296,
       "angle": 0,
       "strokeColor": "#e03131",
       "backgroundColor": "transparent",
@@ -15542,8 +15559,8 @@
       "index": "b8R",
       "roundness": null,
       "seed": 1649926529,
-      "version": 57,
-      "versionNonce": 1535903528,
+      "version": 105,
+      "versionNonce": 1079086393,
       "isDeleted": false,
       "boundElements": [
         {
@@ -15551,7 +15568,7 @@
           "id": "BB4sPiXvPO8rTdFcepDfZ"
         }
       ],
-      "updated": 1759267158668,
+      "updated": 1759871745503,
       "link": null,
       "locked": false,
       "points": [
@@ -15560,16 +15577,8 @@
           0
         ],
         [
-          -132.36600106572496,
-          0
-        ],
-        [
-          -132.36600106572496,
-          -3.1565412121544796
-        ],
-        [
-          -257.7320021314499,
-          -3.1565412121544796
+          -448.3916701001999,
+          -0.4830182629357296
         ]
       ],
       "lastCommittedPoint": null,

@@ -1,10 +1,9 @@
-
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../components/ui/card'
 import { Button } from '../components/ui/button'
 import { Play, Pause, BarChart3, Calendar } from 'lucide-vue-next'
-
+import { computed } from 'vue'
 // Timer state
 const isTimerRunning = ref(false)
 const timerSeconds = ref(0)
@@ -69,6 +68,14 @@ onMounted(() => {
     }
   }
 })
+
+// User Name from Clerk
+const userName = computed(() => {
+  const user = (window as any).Clerk?.user
+  return user ? user.firstName || user.fullName || 'User' : 'Guest'
+})
+
+
 </script>
 
 <template>
@@ -76,15 +83,19 @@ onMounted(() => {
     <!-- Page Header -->
     <div class="text-center sm:text-left">
       <h1 class="text-2xl sm:text-3xl font-bold">Dashboard</h1>
-      <p class="text-muted-foreground mt-1">Willkommen zurück! Hier ist dein Überblick.</p>
+      <p class="text-muted-foreground mt-1">
+        Willkommen <span class="font-bold text-indigo-500 hover:text-indigo-600 hover:drop-shadow-indigo-500 transition-all duration-200">{{ userName }}</span> zurück! Hier ist dein Überblick.
+      </p>
     </div>
 
     <!-- Timer Card -->
     <Card class="w-full">
-      <CardHeader class="text-center pb-4">
+
+      <CardHeader class="text-center">
         <CardTitle class="text-lg sm:text-xl">TIMER</CardTitle>
       </CardHeader>
-      <CardContent class="space-y-4">
+
+      <CardContent class="space-y-4 w-full sm:w-1/2 mx-auto">
         <!-- Timer Display -->
         <div class="text-center">
           <div class="text-4xl sm:text-6xl font-mono font-bold text-primary">
@@ -93,7 +104,7 @@ onMounted(() => {
         </div>
         
         <!-- Timer Controls -->
-        <div class="flex justify-center gap-3">
+        <div class="flex flex-col justify-center gap-3">
           <Button 
             @click="startTimer" 
             :disabled="isTimerRunning"
@@ -138,13 +149,12 @@ onMounted(() => {
           <div v-else class="text-sm text-muted-foreground">
             Bereit zum Starten
           </div>
-          
-          <!-- Quick Actions -->
-          <div class="flex gap-2 flex-wrap">
-            <Button size="sm" variant="outline" class="flex-1 sm:flex-none">
+
+          <div class="flex flex-col gap-2  w-full sm:w-1/2 mx-auto">
+            <Button size="lg" variant="outline" class="flex-1 sm:flex-none">
               Übung hinzufügen
             </Button>
-            <Button size="sm" variant="outline" class="flex-1 sm:flex-none">
+            <Button size="lg" variant="outline" class="flex-1 sm:flex-none">
               Workout beenden
             </Button>
           </div>

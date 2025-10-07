@@ -1,0 +1,20 @@
+.debug {
+   background: red !important;
+}
+.debug-yellow {
+   background: yellow !important;
+}
+.debug-blue {
+   background: blue !important;
+}
+.debug-green {
+   background: green !important;
+}
+.debug-pink {
+   background: hotpink !important;
+}
+
+.debug-outline {
+   outline: 1px solid red !important;
+   outline-offset: -1px !important;
+}
