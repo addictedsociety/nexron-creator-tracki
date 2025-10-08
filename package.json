@@ -12,6 +12,7 @@
     "concurrently": "^9.2.1"
   },
   "dependencies": {
+    "@clerk/themes": "^2.4.25",
     "@clerk/vue": "^1.14.1"
   }
 }
