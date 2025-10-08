@@ -33,6 +33,8 @@ import { useRoute } from "vue-router";
 
 import logo from "@/assets/tracki_logo_lg.svg";
 
+import UserDialog from "./UserDialog.vue";
+
 const route = useRoute();
 
 const isDark = ref(false);
@@ -106,7 +108,7 @@ const isActive = (p: string) => computed(() => route.path === p);
                                     <User class="h-4 w-4 text-muted-foreground" />
                                     <span>Profil</span>
                                 </div>
-                                <UserButton />
+                                <UserDialog />
                             </DropdownMenuItem>
                         </SignedIn>
 
