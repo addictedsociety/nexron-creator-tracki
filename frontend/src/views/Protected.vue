@@ -19,7 +19,6 @@ watchEffect(() => {
     <router-view />
   </SignedIn>
 
-  <!-- Fallback: rendert SignIn inline, falls Redirect noch nicht gegriffen hat -->
   <SignedOut>
     <SignIn path="/sign-in" routing="path" afterSignInUrl="/" />
   </SignedOut>

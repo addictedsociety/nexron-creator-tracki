@@ -19,7 +19,7 @@ import logo from "@/assets/tracki_logo_lg.svg";
       class="mt-4 p-4 rounded-xl border border-border 
              bg-card/80 backdrop-blur-md shadow-lg shadow-indigo-500/50"
     >
-      <SignIn theme=""/>
+      <SignIn/>
     </div>
   </div>
 </template>
