@@ -51,9 +51,8 @@ onMounted(() => {
       </Button>
     </DialogTrigger>
 
-    <!-- DialogContent: Mobile ~Fullscreen, Desktop kompakt -->
     <DialogContent
-      class="w-[92vw] lg:max-w-[8px] max-w-[92vw] sm:max-w-[560px]
+      class="w-[92vw] lg:max-w-[880px] max-w-[92vw] sm:max-w-[560px]
              h-[85vh] sm:h-auto
              overflow-hidden p-0
              rounded-none sm:rounded-xl
@@ -68,7 +67,7 @@ onMounted(() => {
           <UserProfile.Page label="security" />
 
           <!-- Appearance -->
-          <UserProfile.Page label="Appearance" url="appearance">
+          <UserProfile.Page label="Darstellung" url="darstellung">
             <template #labelIcon>
               <Moon class="w-4 h-4" />
             </template>
@@ -81,10 +80,9 @@ onMounted(() => {
 
               <Button
                 variant="outline"
-                class="h-12 sm:h-11 px-4 sm:px-3 rounded-xl
-                       bg-secondary text-secondary-foreground
-                       hover:bg-accent hover:text-accent-foreground
-                       transition-all duration-200"
+                size="lg"
+                class="w-full sm:w-auto h-12 sm:h-10 bg-secondary text-secondary-foreground"
+                       
                 @click="toggleTheme"
               >
                 <div class="flex items-center gap-2">
@@ -98,12 +96,17 @@ onMounted(() => {
           </UserProfile.Page>
 
           <!-- Signout -->
-          <UserProfile.Page label="Signout" url="signout">
+          <UserProfile.Page label="Abmelden" url="abmelden">
             <template #labelIcon>
               <LogIn class="w-4 h-4" />
             </template>
 
-            <div class="p-4 sm:p-5">
+            <div class="p-4 sm:p-5 space-y-3">
+               <h2 class="text-base sm:text-lg font-semibold">Ausloggen</h2>
+              <p class="text-sm opacity-70">
+                Du wirst von deinem Konto abgemeldet. Beim nächsten Besuch kannst du dich wieder einloggen.
+              </p>
+
               <AlertDialog>
                 <AlertDialogTrigger as-child>
                   <Button

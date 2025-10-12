@@ -13,7 +13,7 @@ import {
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover"
 
 import { Calendar as CalendarIcon } from "lucide-vue-next"
-import { Calendar } from "@/components/ui/calendar"            // ✅ UI-Calendar (nicht das Icon)
+import { Calendar } from "@/components/ui/calendar"           
 import { useForm } from "vee-validate"
 import { toTypedSchema } from "@vee-validate/zod"
 import { z } from "zod"
@@ -21,9 +21,10 @@ import { cn } from "@/utils"
 import { CalendarDate, DateFormatter, getLocalTimeZone, parseDate, today } from "@internationalized/date"
 import { toDate } from "reka-ui/date"
 
-import { toast } from "vue-sonner"                              // ✅ sonner
+import { toast } from "vue-sonner"                              
 
 const df = new DateFormatter("de-DE", { dateStyle: "long" })
+const popoverOpen = ref(false)
 
 const formSchema = toTypedSchema(z.object({
   dob: z.string().min(1, "Datum ist erforderlich."),
@@ -45,6 +46,7 @@ const onSubmit = handleSubmit((vals) => {
       h("code", { class: "text-white" }, JSON.stringify(vals, null, 2))
     )
   })
+  popoverOpen.value = false
 })
 
 // Demo-Stats
@@ -87,14 +89,15 @@ const stats = ref({
         </div>
 
         <div>
-          <Popover>
+      
+          <Popover v-model:open="popoverOpen">
             <PopoverTrigger as-child>
               <Button variant="outline">Training erledigt</Button>
             </PopoverTrigger>
 
-            <PopoverContent class="w-60">
+            <PopoverContent class="w-full">
               <div class="grid w-full max-w-sm gap-2">
-                <form class="space-y-8" @submit="onSubmit">   <!-- ✅ echtes </form> -->
+                <form class="space-y-8" @submit="onSubmit">
                   <FormField name="dob">
                     <FormItem class="flex flex-col">
                       <FormLabel>Datum</FormLabel>

@@ -94,39 +94,4 @@ watchEffect((cleanupFn) => {
         </CardContent>
     </Card>
 </template>
-<!-- 
-<Button 
-@click="startTimer" 
-:disabled="isTimerRunning"
-size="lg"
-class="flex items-center gap-2"
->
-<Play class="h-4 w-4" />
-Start
-</Button> -->
 
-<!-- Weight Display -->
-<!-- <div class="grid grid-cols-2 gap-4 text-center">
-    <div class="space-y-1">
-        <div class="text-2xl sm:text-3xl font-bold text-primary">{{ stats.currentWeight }}kg</div>
-        <div class="text-xs sm:text-sm text-muted-foreground">Aktuell</div>
-    </div>
-    <div class="space-y-1">
-        <div class="text-2xl sm:text-3xl font-bold text-green-600">{{ stats.targetWeight }}kg</div>
-        <div class="text-xs sm:text-sm text-muted-foreground">Ziel</div>
-    </div>
-</div>
-
-<!-- Progress Bar -->
-<!-- <div class="space-y-2">
-    <div class="flex justify-between text-sm">
-        <span>Fortschritt</span>
-        <span>{{ Math.round(((stats.currentWeight - stats.targetWeight) / stats.currentWeight) * 100)
-            }}%</span>
-    </div>
-    <div class="w-full bg-secondary rounded-full h-2">
-        <div class="bg-primary h-2 rounded-full transition-all duration-300"
-            :style="{ width: `${Math.min(100, ((stats.currentWeight - stats.targetWeight) / stats.currentWeight) * 100)}%` }">
-        </div>
-    </div>
-</div> --> -->
