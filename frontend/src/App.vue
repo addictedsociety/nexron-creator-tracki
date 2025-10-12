@@ -9,9 +9,9 @@ import {
 import { computed, onMounted, ref } from "vue";
 import { useRoute } from "vue-router";
 
-import Footer from "./components/App/footer.vue";
-import Header from "./components/App/header.vue";
-import SignInTracki from "./components/App/signin.vue";
+import Footer from "@/components/pages/App/footer.vue";
+import Header from "@/components/pages/App/header.vue";
+import SignInTracki from "@/components/pages/App/signin.vue";
 
 
 const isDark = ref(false);

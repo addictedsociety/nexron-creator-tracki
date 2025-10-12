@@ -39,7 +39,8 @@ const userName = computed(() => {
     <WeightCard/>
 
     <!-- Weekly Stats Card -->
-     <Daychecker/>
+    <Daychecker/>
     
   </div>
+  
 </template>

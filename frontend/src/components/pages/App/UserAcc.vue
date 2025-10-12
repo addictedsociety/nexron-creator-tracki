@@ -2,20 +2,18 @@
 <script setup lang="ts">
 import { Button } from "@/components/ui/button"
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog"
-import { UserProfile, SignOutButton } from "@clerk/vue"
-import { UserRound, Moon, Sun, LogIn } from "lucide-vue-next"
-import { ref, onMounted } from "vue"
+import { SignOutButton, UserProfile } from "@clerk/vue"
+import { LogIn, Moon, Sun, UserRound } from "lucide-vue-next"
+import { onMounted, ref } from "vue"
 
 import {
   AlertDialog,
-  AlertDialogAction,
   AlertDialogCancel,
   AlertDialogContent,
-  AlertDialogDescription,
   AlertDialogFooter,
   AlertDialogHeader,
   AlertDialogTitle,
-  AlertDialogTrigger,
+  AlertDialogTrigger
 } from "@/components/ui/alert-dialog"
 
 const isDark = ref(false)
@@ -60,8 +58,16 @@ onMounted(() => {
              justify-center"
     >
       <!-- eigener Scroller nur für den Inhalt -->
-      <div class="max-h-full overflow-y-auto">
-        <UserProfile class="h-full flex flex-col">
+      <div class="max-h-full overflow-y-auto h-[85vh] sm:h-[70vh]">
+          <UserProfile
+            :appearance="{
+              elements: {
+                rootBox: 'h-full flex flex-col',
+              card: 'shadow-none',
+            }
+            }"
+          >
+          
           <!-- Standardseiten -->
           <UserProfile.Page label="account" />
           <UserProfile.Page label="security" />

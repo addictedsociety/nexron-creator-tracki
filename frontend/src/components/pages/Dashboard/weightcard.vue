@@ -35,7 +35,7 @@ watchEffect((cleanupFn) => {
 
 </script>
 <template>
-    <Card class="w-full shadow-lg shadow-indigo-500/20">
+    <Card class="w-full border-primary shadow-lg shadow-indigo-500/20">
         <CardHeader>
             <CardTitle class="text-lg sm:text-xl flex items-center gap-2">
                 <Weight class="h-5 w-5" />
@@ -44,7 +44,7 @@ watchEffect((cleanupFn) => {
         </CardHeader>
 
         <CardContent>
-            <div class="flex flex-col w-full sm:w-1/2 mx-auto items-center justify-center space-y-4">
+            <div class="flex flex-col w-full sm:w-1/2 mx-auto items-center justify-center space-y-6">
                 <weightChart />
                 <div class="w-full grid grid-cols-2 gap-4 text-center">
                     <div class="space-y-1 text-left">
@@ -61,35 +61,61 @@ watchEffect((cleanupFn) => {
                     </div>
                 </div>
                 <Progress :model-value="progress" class="w-full" />
+            
+                <div class="flex flex-row gap-3">
+                    <Popover>
+                        <PopoverTrigger as-child>
+                            <Button variant="outline">
+                                Gewicht ändern
+                            </Button>
+                        </PopoverTrigger>
+                        <PopoverContent class="w-60">
+                            <div class="grid w-full max-w-sm gap-2">
+                                <Label for="weight">Gewicht</Label>
 
-                <Popover>
-                    <PopoverTrigger as-child>
-                        <Button variant="outline">
-                            Gewicht ändern
-                        </Button>
-                    </PopoverTrigger>
-                    <PopoverContent class="w-60">
-                        <div class="grid w-full max-w-sm gap-2">
-                            <Label for="weight">Gewicht</Label>
+                                <NumberField id="weight" v-model="stats.currentWeight" :min="0" :step="0.1" :format-options="{
+                                    style: 'unit',
+                                    unit: 'kilogram',
+                                    unitDisplay: 'narrow',
+                                    minimumFractionDigits: 1,
+                                    maximumFractionDigits: 1
+                                }">
+                                    <NumberFieldContent>
+                                        <NumberFieldDecrement />
+                                        <NumberFieldInput />
+                                        <NumberFieldIncrement />
+                                    </NumberFieldContent>
+                                </NumberField>
+                            </div>
+                        </PopoverContent>
+                    </Popover>
+                    <Popover>
+                        <PopoverTrigger as-child>
+                            <Button variant="outline">
+                                Zielgewicht ändern
+                            </Button>
+                        </PopoverTrigger>
+                        <PopoverContent class="w-60">
+                            <div class="grid w-full max-w-sm gap-2">
+                                <Label for="weight">Gewicht</Label>
 
-                            <NumberField id="weight" v-model="stats.currentWeight" :min="0" :step="0.1" :format-options="{
-                                style: 'unit',
-                                unit: 'kilogram',
-                                unitDisplay: 'narrow',
-                                minimumFractionDigits: 1,
-                                maximumFractionDigits: 1
-                            }">
-                                <NumberFieldContent>
-                                    <NumberFieldDecrement />
-                                    <NumberFieldInput />
-                                    <NumberFieldIncrement />
-                                </NumberFieldContent>
-                            </NumberField>
-                        </div>
-
-                    </PopoverContent>
-                </Popover>
-
+                                <NumberField id="weight" v-model="stats.targetWeight" :min="0" :step="0.1" :format-options="{
+                                    style: 'unit',
+                                    unit: 'kilogram',
+                                    unitDisplay: 'narrow',
+                                    minimumFractionDigits: 1,
+                                    maximumFractionDigits: 1
+                                }">
+                                    <NumberFieldContent>
+                                        <NumberFieldDecrement />
+                                        <NumberFieldInput />
+                                        <NumberFieldIncrement />
+                                    </NumberFieldContent>
+                                </NumberField>
+                            </div>
+                        </PopoverContent>
+                    </Popover>
+                </div>
             </div>
         </CardContent>
     </Card>

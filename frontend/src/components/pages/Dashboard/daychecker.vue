@@ -59,7 +59,7 @@ const stats = ref({
 </script>
 
 <template>
-  <Card class="w-full shadow-lg shadow-indigo-500/20">
+  <Card class="w-full border-primary shadow-lg shadow-indigo-500/20">
     <CardHeader>
       <CardTitle class="text-lg sm:text-xl flex items-center gap-2">
         <CalendarIcon class="h-5 w-5" />
@@ -75,16 +75,16 @@ const stats = ref({
             <div class="text-xs text-muted-foreground">Diese Woche</div>
           </div>
           <div class="space-y-2">
-            <div class="text-xl sm:text-2xl font-bold text-blue-600">{{ stats.totalWorkouts }}</div>
-            <div class="text-xs text-muted-foreground">Gesamt</div>
-          </div>
-          <div class="space-y-2">
             <div class="text-xl sm:text-2xl font-bold text-green-600">7</div>
             <div class="text-xs text-muted-foreground">Ziel/Woche</div>
           </div>
-          <div class="space-y-2">
+           <div class="space-y-2">
             <div class="text-xl sm:text-2xl font-bold text-orange-600">3</div>
             <div class="text-xs text-muted-foreground">Streak</div>
+          </div>
+          <div class="space-y-2">
+            <div class="text-xl sm:text-2xl font-bold text-blue-600">{{ stats.totalWorkouts }}</div>
+            <div class="text-xs text-muted-foreground">Gesamt</div>
           </div>
         </div>
 
