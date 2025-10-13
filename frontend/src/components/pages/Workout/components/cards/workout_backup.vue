@@ -512,3 +512,41 @@ const userName = computed(() => {
     </div>
   </div>
 </template>
+
+Neuer Ordner
+                    <TooltipProvider>
+                        <Tooltip>
+                            <TooltipTrigger as-child>
+                                <Button variant="secondary" class="h-9 w-9 p-0 grid place-items-center"
+                                    aria-label="Neuer Ordner" @click="emit('create-folder')">
+                                    <Folder class="w-4 h-4" />
+                                </Button>
+                            </TooltipTrigger>
+                            <TooltipContent>Neuer Ordner</TooltipContent>
+                        </Tooltip>
+                    </TooltipProvider>
+
+                    <!-- Kebab-Menü -->
+                    <DropdownMenu>
+                        <DropdownMenuTrigger as-child>
+                            <Button variant="secondary" class="h-9 w-9 p-0 grid place-items-center"
+                                aria-label="Weitere Aktionen">
+                                <MoreHorizontal class="w-4 h-4" />
+                            </Button>
+                        </DropdownMenuTrigger>
+                        <DropdownMenuContent align="end" class="w-44">
+                            <DropdownMenuItem @click="emit('rename')">
+                                <Edit class="w-4 h-4 mr-2" /> Umbenennen
+                            </DropdownMenuItem>
+                            <DropdownMenuItem @click="emit('duplicate')">
+                                <Copy class="w-4 h-4 mr-2" /> Duplizieren
+                            </DropdownMenuItem>
+                            <DropdownMenuItem @click="emit('export')">
+                                <Download class="w-4 h-4 mr-2" /> Exportieren
+                            </DropdownMenuItem>
+                            <DropdownMenuSeparator />
+                            <DropdownMenuItem class="text-destructive" @click="emit('delete')">
+                                <Trash2 class="w-4 h-4 mr-2" /> Löschen
+                            </DropdownMenuItem>
+                        </DropdownMenuContent>
+                    </DropdownMenu>

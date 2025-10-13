@@ -59,7 +59,7 @@ const stats = ref({
 </script>
 
 <template>
-  <Card class="w-full border-primary shadow-lg shadow-indigo-500/20">
+  <Card class="w-full border-primary shadow-lg shadow-indigo-500/50">
     <CardHeader>
       <CardTitle class="text-lg sm:text-xl flex items-center gap-2">
         <CalendarIcon class="h-5 w-5" />

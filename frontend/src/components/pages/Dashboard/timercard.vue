@@ -56,7 +56,7 @@ onMounted(() => {
 </script>
 
 <template><!-- Timer Card -->
-<Card class="w-full border-primary shadow-lg shadow-indigo-500/20">
+<Card class="w-full border-primary shadow-lg shadow-indigo-500/50">
 
     <CardHeader class="text-center">
     <CardTitle class="text-lg sm:text-xl">PAUSE TIMER</CardTitle>

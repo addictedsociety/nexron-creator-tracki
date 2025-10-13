@@ -1,5 +1,7 @@
 <!-- src/features/workout/components/ActiveWorkoutCard.vue -->
+
 <script setup lang="ts">
+
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Pause, Play, Square, Plus, Trash2 } from 'lucide-vue-next'
@@ -27,6 +29,7 @@ const w = useWorkout()
     </CardHeader>
 
     <CardContent class="space-y-4">
+      
       <div class="flex gap-2 items-center justify-center flex-wrap">
         <Button @click="w.pauseWorkout" variant="outline" size="sm"><Pause class="h-4 w-4 mr-2" />Pausieren</Button>
         <Button @click="w.resumeWorkout" variant="outline" size="sm"><Play class="h-4 w-4 mr-2" />Fortsetzen</Button>
