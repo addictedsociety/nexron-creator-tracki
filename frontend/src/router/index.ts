@@ -3,8 +3,8 @@ import { createRouter, createWebHistory } from 'vue-router'
 import type { RouteRecordRaw } from 'vue-router'
 
 const routes: RouteRecordRaw[] = [
-  { path: '/', component: () => import('@/views/Dashboard.vue') },
-  { path: '/workout', component: () => import('@/views/Workout.vue') },
+  { path: '/', component: () => import('@/app/views/Dashboard.vue') },
+  { path: '/workout', component: () => import('@/app/views/Workout.vue') },
 
 ]
 const router = createRouter({

@@ -1,11 +1,10 @@
 import { createApp } from "vue";
 import App from "./App.vue";
 import router from "./router";
-import "./assets/style.css";
-import "./assets/debug.css"; // Debug styles, can be removed later
+import "./app/styles/style.css";
+import "./app/styles/debug.css"; // Debug styles, can be removed later
 import { clerkPlugin } from "@clerk/vue";
 import { dark } from "@clerk/themes";
-
 const PUBLISHABLE_KEY = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY;
 
 if (!PUBLISHABLE_KEY) {
