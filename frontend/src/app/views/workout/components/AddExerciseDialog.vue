@@ -1,11 +1,11 @@
 <!-- src/features/workout/components/AddExerciseDialog.vue -->
 <script setup lang="ts">
 import { ref } from 'vue'
-import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from '@/shared/ui/dialog'
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/shared/ui/select'
-import { Label } from '@/shared/ui/label'
-import { Input } from '@/shared/ui/input'
-import { Button } from '@/shared/ui/button'
+import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog'
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
+import { Label } from '@/components/ui/label'
+import { Input } from '@/components/ui/input'
+import { Button } from '@/components/ui/button'
 import { exerciseCategories, exerciseLibrary } from '../data/constants'
 import { useWorkout } from '@/app/views/workout/composables/useWorkout'
 const open = ref(false)

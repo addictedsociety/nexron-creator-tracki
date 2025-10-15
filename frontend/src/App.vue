@@ -6,8 +6,7 @@ import {
   SignedOut
 } from "@clerk/vue";
 
-import { computed, onMounted, ref } from "vue";
-import { useRoute } from "vue-router";
+import { onMounted, ref } from "vue";
 
 import Footer from "@/app/components/footer.vue";
 import Header from "@/app/components/header.vue";

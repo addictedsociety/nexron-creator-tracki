@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed, h, ref } from "vue"
-import { Button } from "@/shared/ui/button"
-import { Card, CardContent, CardHeader, CardTitle } from "@/shared/ui/card"
+import { Button } from "@/components/ui/button"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import {
   FormControl,
   FormDescription,
@@ -9,11 +9,11 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from "@/shared/ui/form"
-import { Popover, PopoverContent, PopoverTrigger } from "@/shared/ui/popover"
+} from "@/components/ui/form"
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover"
 
 import { Calendar as CalendarIcon } from "lucide-vue-next"
-import { Calendar } from "@/shared/ui/calendar"           
+import { Calendar } from "@/components/ui/calendar"           
 import { useForm } from "vee-validate"
 import { toTypedSchema } from "@vee-validate/zod"
 import { z } from "zod"

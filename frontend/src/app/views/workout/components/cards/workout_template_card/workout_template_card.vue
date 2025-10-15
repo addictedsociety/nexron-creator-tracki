@@ -1,6 +1,6 @@
 <!-- src/components/Library/TemplatesHeader.vue -->
 <script setup lang="ts">
-import { Card, CardContent, CardHeader, CardTitle } from '@/shared/ui/card';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Dumbbell } from 'lucide-vue-next';
 
 import workout_template_card_create from './components/workout_template_card_create.vue';
@@ -35,7 +35,7 @@ const emit = defineEmits<{
 
             <CardContent>
                 <div v-if="!folders || folders.length === 0"
-                    class="flex items-center justify-center h-16 rounded-lg border border-border text-muted-foreground">
+                    class="flex items-center justify-center h-32 rounded-lg border border-border text-muted-foreground">
                     Keine Ordner vorhanden
                 </div>
 
@@ -43,7 +43,6 @@ const emit = defineEmits<{
 
                 </div>
             </CardContent>
-
 
         </CardContent>
     </Card>

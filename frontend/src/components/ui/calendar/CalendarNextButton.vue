@@ -1,13 +1,13 @@
 <script lang="ts" setup>
-import type { CalendarPrevProps } from "reka-ui"
+import type { CalendarNextProps } from "reka-ui"
 import type { HTMLAttributes } from "vue"
 import { reactiveOmit } from "@vueuse/core"
-import { ChevronLeftIcon } from '@radix-icons/vue'
-import { CalendarPrev, useForwardProps } from "reka-ui"
+import { ChevronRightIcon } from '@radix-icons/vue'
+import { CalendarNext, useForwardProps } from "reka-ui"
 import { cn } from "@/lib/utils"
-import { buttonVariants } from '@/shared/ui/button'
+import { buttonVariants } from '@/components/ui/button'
 
-const props = defineProps<CalendarPrevProps & { class?: HTMLAttributes["class"] }>()
+const props = defineProps<CalendarNextProps & { class?: HTMLAttributes["class"] }>()
 
 const delegatedProps = reactiveOmit(props, "class")
 
@@ -15,7 +15,7 @@ const forwardedProps = useForwardProps(delegatedProps)
 </script>
 
 <template>
-  <CalendarPrev
+  <CalendarNext
     :class="cn(
       buttonVariants({ variant: 'outline' }),
       'h-7 w-7 bg-transparent p-0 opacity-50 hover:opacity-100',
@@ -24,7 +24,7 @@ const forwardedProps = useForwardProps(delegatedProps)
     v-bind="forwardedProps"
   >
     <slot>
-      <ChevronLeftIcon class="h-4 w-4" />
+      <ChevronRightIcon class="h-4 w-4" />
     </slot>
-  </CalendarPrev>
+  </CalendarNext>
 </template>

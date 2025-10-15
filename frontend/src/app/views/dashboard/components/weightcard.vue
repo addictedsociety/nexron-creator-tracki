@@ -1,21 +1,21 @@
 <script setup lang="ts">
 
-import { Button } from "@/shared/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from '@/shared/ui/card';
-import { Label } from "@/shared/ui/label";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Label } from "@/components/ui/label";
 import {
     NumberField,
     NumberFieldContent,
     NumberFieldDecrement,
     NumberFieldIncrement,
     NumberFieldInput,
-} from '@/shared/ui/number-field';
+} from '@/components/ui/number-field';
 import {
     Popover,
     PopoverContent,
     PopoverTrigger,
-} from "@/shared/ui/popover";
-import { Progress } from "@/shared/ui/progress";
+} from "@/components/ui/popover";
+import { Progress } from "@/components/ui/progress";
 import { Weight } from 'lucide-vue-next';
 import { ref, watchEffect } from 'vue';
 import weightChart from '@/app/views/dashboard/chart/weightChart.vue';

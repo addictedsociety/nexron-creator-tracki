@@ -3,8 +3,8 @@
 <script setup lang="ts">
 
 import { useWorkout } from '@/app/views/workout/composables/useWorkout'
-import { Button } from '@/shared/ui/button'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/shared/ui/card'
+import { Button } from '@/components/ui/button'
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Pause, Play, Plus, Square } from 'lucide-vue-next'
 import AddExerciseDialog from '../AddExerciseDialog.vue'
 import ExerciseCard from '../ExerciseCard.vue'

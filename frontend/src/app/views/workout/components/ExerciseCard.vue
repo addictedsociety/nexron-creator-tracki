@@ -1,7 +1,7 @@
 <!-- src/features/workout/components/ExerciseCard.vue -->
 <script setup lang="ts">
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/shared/ui/card'
-import { Button } from '@/shared/ui/button'
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
+import { Button } from '@/components/ui/button'
 import { Plus, Trash2 } from 'lucide-vue-next'
 import SetRow from './SetRow.vue'
 import type { ExerciseItem } from '../types'

@@ -1,7 +1,7 @@
 <!-- src/features/workout/components/SetRow.vue -->
 <script setup lang="ts">
-import { Button } from '@/shared/ui/button'
-import { Input } from '@/shared/ui/input'
+import { Button } from '@/components/ui/button'
+import { Input } from '@/components/ui/input'
 
 const props = defineProps<{
   index: number;

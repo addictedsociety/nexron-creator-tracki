@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Button } from "@/shared/ui/button"
+import { Button } from "@/components/ui/button"
 import {
     Dialog,
     DialogClose,
@@ -9,8 +9,8 @@ import {
     DialogHeader,
     DialogTitle,
     DialogTrigger,
-} from "@/shared/ui/dialog"
-import { Input } from "@/shared/ui/input"
+} from "@/components/ui/dialog"
+import { Input } from "@/components/ui/input"
 import { Plus } from 'lucide-vue-next'
 
 </script>

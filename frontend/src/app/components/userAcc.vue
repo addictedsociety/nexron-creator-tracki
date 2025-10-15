@@ -1,7 +1,7 @@
 <!-- src/components/App/UserAcc.vue -->
 <script setup lang="ts">
-import { Button } from "@/shared/ui/button"
-import { Dialog, DialogContent, DialogTrigger } from "@/shared/ui/dialog"
+import { Button } from "@/components/ui/button"
+import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog"
 import { SignOutButton, UserProfile } from "@clerk/vue"
 import { LogIn, Moon, Sun, UserRound,LogOut } from "lucide-vue-next"
 import { onMounted, ref } from "vue"
@@ -14,7 +14,7 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
   AlertDialogTrigger
-} from "@/shared/ui/alert-dialog"
+} from "@/components/ui/alert-dialog"
 
 const isDark = ref(false)
 
