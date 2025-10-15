@@ -8,9 +8,10 @@ import {
 
 import { onMounted, ref } from "vue";
 
-import Footer from "@/app/components/footer.vue";
-import Header from "@/app/components/header.vue";
+import Footer from "@/app/components/AppFooter.vue";
+import Header from "@/app/components/AppHeader.vue";
 import SignInTracki from "@/app/components/signin.vue";
+
 const isDark = ref(false);
 
 onMounted(() => {
@@ -27,9 +28,13 @@ onMounted(() => {
     <!-- Eingeloggt: volle App -->
     <SignedIn>
       <div class="flex flex-col min-h-screen bg-background text-foreground gap-10 ">
+
         <Header />
+        
         <RouterView />
+
         <Footer />
+        
       </div>
     </SignedIn>
 

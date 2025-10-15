@@ -35,7 +35,7 @@ import { Plus } from 'lucide-vue-next'
             <div class="flex flex-row items-center space-x-2">
                 <div class="grid flex-1 gap-2">
                     <Input id="name" placeholder="Gib einen Namen ein" />
-                    <p class="font-bold text-sm text-gray-700">Beschreibe deinen Ordner</p>
+                    <p class=" text-sm">Beschreibe deinen Ordner (Optional)</p>
                     <Input id="beschreibung" placeholder="Was ist der Inhalt davon?" />
                 </div>
             </div>

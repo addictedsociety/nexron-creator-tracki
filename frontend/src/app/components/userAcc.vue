@@ -3,7 +3,7 @@
 import { Button } from "@/components/ui/button"
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog"
 import { SignOutButton, UserProfile } from "@clerk/vue"
-import { LogIn, Moon, Sun, UserRound,LogOut } from "lucide-vue-next"
+import { LogIn, Moon, Sun, UserRound,LogOut,Share  } from "lucide-vue-next"
 import { onMounted, ref } from "vue"
 
 import {
@@ -15,6 +15,19 @@ import {
   AlertDialogTitle,
   AlertDialogTrigger
 } from "@/components/ui/alert-dialog"
+
+import { useShare } from '@vueuse/core'
+
+const { share, isSupported } = useShare()
+
+function startShare() {
+  share({
+    title: 'Tracki',
+    text: 'Teile Tracki mit deinen Freunden – gemeinsam trainiert es sich besser.',
+    url: location.href,
+  })
+}
+
 
 const isDark = ref(false)
 
@@ -135,6 +148,27 @@ onMounted(() => {
               </AlertDialog>
             </div>
           </UserProfile.Page>
+
+          <!-- Appearance -->
+          <UserProfile.Page label="Teilen" url="teilen">
+            <template #labelIcon>
+              <Share  class="w-4 h-4" />
+            </template>
+
+            <div class="p-4 sm:p-5 space-y-3">
+              <h2 class="text-base sm:text-lg font-semibold">Teilen</h2>
+              <p class="text-sm opacity-70">
+                Teile Tracki mit deinen Freunden – gemeinsam trainiert es sich besser.
+              </p>
+
+              <Button variant="outline" size="lg"
+                class="w-full sm:w-auto h-12 sm:h-10 bg-secondary text-secondary-foreground" @click="startShare()">
+                <span>Freunde einladen</span> <Share class="w-4 h-4" />
+              </Button>
+            </div>
+          </UserProfile.Page>
+
+
         </UserProfile>
       </div>
     </DialogContent>
