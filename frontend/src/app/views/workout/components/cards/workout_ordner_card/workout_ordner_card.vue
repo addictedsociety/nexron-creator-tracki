@@ -27,8 +27,8 @@ const emit = defineEmits<{
           <Folder class="h-5 w-5" />
           Ordner
         </div>
-        
-        <workout_ordner_card_create/>
+
+        <workout_ordner_card_create />
 
 
       </CardTitle>
@@ -38,13 +38,14 @@ const emit = defineEmits<{
     <CardContent class="px-0.5">
 
       <CardContent>
-        <div v-if="!folders || folders.length === 0"
-          class="w-full flex items-center justify-center h-32 rounded-lg border border-border text-muted-foreground">
-          Keine Ordner vorhanden
-        </div>
+        <div class="w-full flex items-center justify-center h-32 rounded-lg border border-border text-muted-foreground">
+          <div v-if="!folders || folders.length === 0">
+            Keine Ordner vorhanden
+          </div>
 
-        <div v-else class="grid gap-3">
+          <div v-else class="grid gap-3">
 
+          </div>
         </div>
       </CardContent>
     </CardContent>

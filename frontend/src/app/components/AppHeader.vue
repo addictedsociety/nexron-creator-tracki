@@ -39,7 +39,7 @@ const isActive = (p: string) => computed(() => route.path === p);
                     <Dumbbell class="h-5 w-5 text-current" />
                 </RouterLink>
 
-                 <UserAcc/>
+                <UserAcc />
 
             </nav>
 

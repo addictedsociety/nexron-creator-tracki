@@ -3,8 +3,8 @@
 import { Button } from "@/components/ui/button"
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog"
 import { SignOutButton, UserProfile } from "@clerk/vue"
-import { LogIn, Moon, Sun, UserRound,LogOut,Share  } from "lucide-vue-next"
-import { onMounted, ref } from "vue"
+import { LogIn, Moon, Sun, UserRound, LogOut, Share, Siren, Zap,ZapOff   } from "lucide-vue-next"
+import { onMounted, ref, onBeforeUnmount } from "vue"
 
 import {
   AlertDialog,
@@ -18,7 +18,18 @@ import {
 
 import { useShare } from '@vueuse/core'
 
-const { share, isSupported } = useShare()
+import { useWakeLock } from '@vueuse/core'
+
+
+const { share } = useShare()
+
+// isSupported: ob der Browser WakeLock unterstützt
+// isActive: ob aktuell ein WakeLock aktiv ist
+// request('screen'): um WakeLock anzufordern
+// release(): um WakeLock wieder freizugeben
+const { isSupported, isActive, request, release } = useWakeLock()
+
+const isDark = ref(false)
 
 function startShare() {
   share({
@@ -29,20 +40,51 @@ function startShare() {
 }
 
 
-const isDark = ref(false)
-
 function toggleTheme() {
   isDark.value = !isDark.value
   document.documentElement.classList.toggle("dark", isDark.value)
   localStorage.setItem("theme", isDark.value ? "dark" : "light")
 }
 
+async function toggleWakeLock() {
+  if (!isSupported) {
+    console.warn('WakeLock nicht unterstützt')
+    return
+  }
+  if (isActive.value) {
+    // aktuell aktiv → ausschalten
+    await release()
+  } else {
+    // aktuell aus → anfordern
+    try {
+      await request('screen')
+    } catch (err) {
+      console.error('Fehler beim Anfordern des WakeLock:', err)
+    }
+  }
+}
+
+
+
 onMounted(() => {
   const prefers = window.matchMedia("(prefers-color-scheme: dark)").matches
   const stored = localStorage.getItem("theme")
   isDark.value = stored ? stored === "dark" : prefers
   document.documentElement.classList.toggle("dark", isDark.value)
+
+  if (isSupported) {
+    request('screen').catch(err => console.warn('WakeLock aktivieren fehlgeschlagen:', err))
+  }
 })
+
+onBeforeUnmount(() => {
+  if (isActive.value) {
+    release().catch(err => {
+      console.warn('Fehler beim Freigeben beim Unmount:', err)
+    })
+  }
+})
+
 </script>
 
 <template>
@@ -105,7 +147,7 @@ onMounted(() => {
           <UserProfile.Page label="Abmelden" url="abmelden">
             <template #labelIcon>
               <LogIn class="w-4 h-4" />
-            </template >
+            </template>
 
             <div class="p-4 sm:p-5 space-y-3">
               <h2 class="text-base sm:text-lg font-semibold">Ausloggen</h2>
@@ -117,12 +159,13 @@ onMounted(() => {
                 <AlertDialogTrigger as-child>
                   <Button size="lg" variant="destructive" class="w-full sm:w-auto h-12 sm:h-10">
                     Signout
-                    <span><LogOut class="h-5 w-5 sm:h-4 sm:w-4 text-current"></LogOut></span>
+                    <span>
+                      <LogOut class="h-5 w-5 sm:h-4 sm:w-4 text-current"></LogOut>
+                    </span>
                   </Button>
                 </AlertDialogTrigger>
 
-                <AlertDialogContent
-                  class="w-[92vw] max-w-[92vw] sm:max-w-[420px] rounded-lg sm:rounded-lg text-center">
+                <AlertDialogContent class="w-[92vw] max-w-[92vw] sm:max-w-[420px] rounded-lg sm:rounded-lg text-center">
                   <AlertDialogHeader>
                     <AlertDialogTitle class="text-base sm:text-lg">
                       Bist du dir sicher?
@@ -152,7 +195,7 @@ onMounted(() => {
           <!-- Appearance -->
           <UserProfile.Page label="Teilen" url="teilen">
             <template #labelIcon>
-              <Share  class="w-4 h-4" />
+              <Share class="w-4 h-4" />
             </template>
 
             <div class="p-4 sm:p-5 space-y-3">
@@ -162,8 +205,35 @@ onMounted(() => {
               </p>
 
               <Button variant="outline" size="lg"
-                class="w-full sm:w-auto h-12 sm:h-10 bg-secondary text-secondary-foreground" @click="startShare()">
-                <span>Freunde einladen</span> <Share class="w-4 h-4" />
+                class="w-full sm:w-auto h-12 sm:h-10 bg-secondary text-secondary-foreground" @click="startShare">
+                <span>Freunde einladen</span>
+                <Share class="w-4 h-4" />
+              </Button>
+            </div>
+          </UserProfile.Page>
+
+          <UserProfile.Page label="Wakelock" url="Wakelock">
+            <template #labelIcon>
+              <Siren class="w-4 h-4" />
+            </template>
+
+            <div class="p-4 sm:p-5 space-y-3">
+              <h2 class="text-base sm:text-lg font-semibold">WakeLock</h2>
+              <p class="text-sm opacity-70">
+                Wenn du den Button drückst, bleibt dein Bildschirm aktiv und geht nicht mehr automatisch in den
+                Ruhemodus.
+              </p>
+
+              <Button variant="outline" size="lg"
+                class="w-full sm:w-auto h-12 sm:h-10 bg-secondary text-secondary-foreground" @click="toggleWakeLock">
+                <template v-if="isActive">
+                  <span>Wach bleiben</span>
+                  <Zap class="w-4 h-4" />
+                </template>
+                <template v-else>
+                  <span>Ruhezustand erlauben</span>
+                  <ZapOff class="w-4 h-4" />
+                </template>
               </Button>
             </div>
           </UserProfile.Page>

@@ -1,17 +1,4 @@
 <script setup lang="ts">
-import { Button } from "@/components/ui/button"
-import {
-    Dialog,
-    DialogClose,
-    DialogContent,
-    DialogDescription,
-    DialogScrollContent,
-    DialogFooter,
-    DialogHeader,
-    DialogTitle,
-    DialogTrigger,
-} from "@/components/ui/dialog"
-import { Input } from "@/components/ui/input"
 import {
     AlertDialog,
     AlertDialogAction,
@@ -23,9 +10,29 @@ import {
     AlertDialogTitle,
     AlertDialogTrigger,
 } from "@/components/ui/alert-dialog"
+import { Button } from "@/components/ui/button"
+import {
+    Dialog,
+    DialogClose,
+    DialogDescription,
+    DialogFooter,
+    DialogHeader,
+    DialogScrollContent,
+    DialogTitle,
+    DialogTrigger
+} from "@/components/ui/dialog"
+import { Input } from "@/components/ui/input"
 
-import { Plus, ArrowDown, ArrowUp } from 'lucide-vue-next'
-import { onMounted, ref } from "vue"
+import {
+    Collapsible,
+    CollapsibleContent,
+    CollapsibleTrigger,
+} from '@/components/ui/collapsible'
+
+import workout_template_card_item from "./workout_template_card_item.vue"
+
+import { ArrowDown, ArrowUp, Plus, ClipboardList } from 'lucide-vue-next'
+import { ref } from "vue"
 
 const isOpen = ref(false);
 
@@ -33,9 +40,10 @@ const dialogOpen = ref(false)
 const confirmOpen = ref(false)
 
 function onConfirm() {
-  confirmOpen.value = false
-  dialogOpen.value = false   // äußeren Dialog schließen
+    confirmOpen.value = false
+    dialogOpen.value = false   // äußeren Dialog schließen
 }
+const togglePanel = () => (isOpen.value = !isOpen.value)
 
 </script>
 <template>
@@ -46,7 +54,7 @@ function onConfirm() {
             </Button>
         </DialogTrigger>
 
-        <DialogScrollContent class="rounded-md max-w-[375px] sm:max-w-[100px] md:max-w-[720px] lg:max-w-[1250px]">
+        <DialogScrollContent class="rounded-md max-w-[375px] sm:max-w-[100px] md:max-w-[720px] lg:max-w-[1250px] gap-2">
 
             <DialogHeader class="flex flex-col items-start">
                 <DialogTitle>Neues Workout erstellen</DialogTitle>
@@ -57,7 +65,8 @@ function onConfirm() {
 
             <div class="flex flex-row items-center space-x-2">
                 <div class="grid flex-1 gap-2">
-                    <Input id="name" placeholder="Workout-Name (z. B. Push Day, Ganzkörper …)" />
+                    
+                    <Input class="max-w-[250px]" id="name" placeholder="Workout-Name (z. B. Push Day )" />
 
                     <div class="flex flex-row gap-3 items-center">
                         <DialogClose as-child>
@@ -86,12 +95,40 @@ function onConfirm() {
                                 </AlertDialogFooter>
                             </AlertDialogContent>
                         </AlertDialog>
-
-                        <Button class="ml-auto" type="button" variant="default">
-                            <ArrowUp />
-                        </Button>
-
                     </div>
+
+                    <div class="flex flex-col border rounded-lg p-3 gap-2">
+                        <div class="flex flex-row items-center justify-between">
+                            <div class="flex flex-row gap-2">
+                                <ClipboardList />
+                                <h2 class="font-semibold">Übungen</h2>
+                            </div>
+
+
+                            <Button class="h-9 w-9" type="button" variant="default" @click="togglePanel">
+                                <ArrowUp class="transition-transform duration-200"
+                                    :class="isOpen ? 'rotate-180' : ''" />
+                            </Button>
+                        </div>
+                        <Collapsible v-model:open="isOpen" class="w-full">
+
+                            <CollapsibleContent class="rounded-lg space-y-3">
+                                
+                                <workout_template_card_item/>
+
+                                <div class="flex flex-row items-center justify-center rounded-md">
+                                    <Button class="min-w-[200px]" type="submit"
+                                        variant="default">
+                                        Übung hinzufügen
+                                    </Button>
+                                </div>
+
+                            </CollapsibleContent>
+
+                        </Collapsible>
+                    </div>
+
+
                 </div>
             </div>
 

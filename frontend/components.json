@@ -12,7 +12,7 @@
     "components": "@/components",
     "composables": "@/composables",
     "utils": "@/lib/utils",
-    "ui": "@/shared/ui",
+    "ui": "@/ui",
     "lib": "@/lib"
   }
 }

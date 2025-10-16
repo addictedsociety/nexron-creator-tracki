@@ -27,6 +27,7 @@ onMounted(() => {
   <ClerkLoaded>
     <!-- Eingeloggt: volle App -->
     <SignedIn>
+      
       <div class="flex flex-col min-h-screen bg-background text-foreground gap-10 ">
 
         <Header />
@@ -36,6 +37,7 @@ onMounted(() => {
         <Footer />
         
       </div>
+
     </SignedIn>
 
     <!-- Ausgeloggt: nur SignIn -->

@@ -40,7 +40,7 @@ import { Plus } from 'lucide-vue-next'
                 </div>
             </div>
 
-            <DialogFooter class="flex flex-row items-center justify-center gap-5 sm:justify-center">
+            <div class="flex flex-row items-center justify-center gap-5 sm:justify-center">
                 <DialogClose as-child>
                     <Button class="min-w-[125px]" type="button" variant="default">
                         Speicher
@@ -51,8 +51,12 @@ import { Plus } from 'lucide-vue-next'
                         Abbrechen
                     </Button>
                 </DialogClose>
+            </div>
 
+            <DialogFooter class="">
+                
             </DialogFooter>
+
         </DialogContent>
     </Dialog>
 </template>
