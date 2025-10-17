@@ -54,7 +54,8 @@ const togglePanel = () => (isOpen.value = !isOpen.value)
             </Button>
         </DialogTrigger>
 
-        <DialogScrollContent class="rounded-md max-w-[375px] sm:max-w-[100px] md:max-w-[720px] lg:max-w-[1250px] gap-2">
+        <DialogScrollContent
+            class="p-4 rounded-md max-w-[375px] sm:max-w-[100px] md:max-w-[720px] lg:max-w-[1250px] gap-2">
 
             <DialogHeader class="flex flex-col items-start">
                 <DialogTitle>Neues Workout erstellen</DialogTitle>
@@ -64,8 +65,9 @@ const togglePanel = () => (isOpen.value = !isOpen.value)
             </DialogHeader>
 
             <div class="flex flex-row items-center space-x-2">
+
                 <div class="grid flex-1 gap-2">
-                    
+
                     <Input class="max-w-[250px]" id="name" placeholder="Workout-Name (z. B. Push Day )" />
 
                     <div class="flex flex-row gap-3 items-center">
@@ -97,34 +99,37 @@ const togglePanel = () => (isOpen.value = !isOpen.value)
                         </AlertDialog>
                     </div>
 
-                    <div class="flex flex-col border rounded-lg p-3 gap-2">
-                        <div class="flex flex-row items-center justify-between">
-                            <div class="flex flex-row gap-2">
-                                <ClipboardList />
-                                <h2 class="font-semibold">Übungen</h2>
+                    <div class="border rounded-lg p-3 gap-2">
+                        <Collapsible v-model:open="isOpen" class="w-full">
+                            <!-- Header-Zeile -->
+                            <div class="flex flex-row items-center justify-between">
+                                <div class="flex items-center gap-2">
+                                    <ClipboardList />
+                                    <h2 class="font-semibold">Übungen</h2>
+                                </div>
+
+                                <CollapsibleTrigger as-child>
+                                    <Button class="h-9 w-9" type="button" variant="default">
+                                        <ArrowUp class="transition-transform duration-200"
+                                            :class="isOpen ? 'rotate-180' : ''" />
+                                    </Button>
+                                </CollapsibleTrigger>
                             </div>
 
+                            <!-- Content über volle Breite -->
+                            <CollapsibleContent class="flex flex-col mt-3 w-full rounded-lg space-y-3">
 
-                            <Button class="h-9 w-9" type="button" variant="default" @click="togglePanel">
-                                <ArrowUp class="transition-transform duration-200"
-                                    :class="isOpen ? 'rotate-180' : ''" />
-                            </Button>
-                        </div>
-                        <Collapsible v-model:open="isOpen" class="w-full">
+                                <workout_template_card_item />
 
-                            <CollapsibleContent class="rounded-lg space-y-3">
-                                
-                                <workout_template_card_item/>
-
-                                <div class="flex flex-row items-center justify-center rounded-md">
-                                    <Button class="min-w-[200px]" type="submit"
-                                        variant="default">
+                                <div class="flex justify-center">
+                                    <Button class="min-w-[200px]" type="button" variant="default">
                                         Übung hinzufügen
                                     </Button>
                                 </div>
 
                             </CollapsibleContent>
 
+                            
                         </Collapsible>
                     </div>
 
@@ -132,8 +137,8 @@ const togglePanel = () => (isOpen.value = !isOpen.value)
                 </div>
             </div>
 
-            <DialogFooter class="flex flex-row items-center justify-start gap-5 lg:justify-">
-
+            <DialogFooter class="flex flex-row items-center justify-start gap-5">
+                <!-- lg:justify- entfernt -->
             </DialogFooter>
 
         </DialogScrollContent>

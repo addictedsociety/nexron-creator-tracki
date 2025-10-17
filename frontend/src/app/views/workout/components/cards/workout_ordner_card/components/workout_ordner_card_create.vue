@@ -5,6 +5,7 @@ import {
     DialogClose,
     DialogContent,
     DialogDescription,
+    DialogScrollContent,
     DialogFooter,
     DialogHeader,
     DialogTitle,
@@ -23,7 +24,7 @@ import { Plus } from 'lucide-vue-next'
             </Button>
         </DialogTrigger>
 
-        <DialogContent class=" rounded-md max-w-[375px] sm:max-w-[100px] md:max-w-[720px] lg:max-w-[1250px]">
+        <DialogScrollContent class="p-4 rounded-md max-w-[375px] sm:max-w-[100px] md:max-w-[720px] lg:max-w-[1250px]">
 
             <DialogHeader class="flex flex-col items-start">
                 <DialogTitle>Neuen Ordner erstellen</DialogTitle>
@@ -32,7 +33,7 @@ import { Plus } from 'lucide-vue-next'
                 </DialogDescription>
             </DialogHeader>
 
-            <div class="flex flex-row items-center space-x-2">
+            <div class="flex flex-row items-center">
                 <div class="grid flex-1 gap-2">
                     <Input id="name" placeholder="Gib einen Namen ein" />
                     <p class=" text-sm">Beschreibe deinen Ordner (Optional)</p>
@@ -57,6 +58,6 @@ import { Plus } from 'lucide-vue-next'
                 
             </DialogFooter>
 
-        </DialogContent>
+        </DialogScrollContent>
     </Dialog>
 </template>
