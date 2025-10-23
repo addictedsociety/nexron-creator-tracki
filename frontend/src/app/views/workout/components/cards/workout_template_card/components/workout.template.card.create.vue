@@ -29,7 +29,7 @@ import {
     CollapsibleTrigger,
 } from '@/components/ui/collapsible'
 
-import workout_template_card_item from "./workout_template_card_item.vue"
+import workout_template_card_item from "./workout.template.card.item.vue"
 
 import { ArrowDown, ArrowUp, Plus, ClipboardList } from 'lucide-vue-next'
 import { ref } from "vue"
@@ -128,7 +128,6 @@ const togglePanel = () => (isOpen.value = !isOpen.value)
                                 </div>
 
                             </CollapsibleContent>
-
                             
                         </Collapsible>
                     </div>

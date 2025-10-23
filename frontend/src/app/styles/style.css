@@ -72,7 +72,6 @@ h1 {
   line-height: 1.1;
 }
 
-
 .card {
   padding: 2em;
 }
@@ -173,9 +172,9 @@ h1 {
 }
 
 @layer base {
-  * {
+  /* * {
     @apply border-border outline-ring/50;
-  }
+  } */
   body {
     @apply bg-background text-foreground;
   }

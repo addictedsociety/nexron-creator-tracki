@@ -26,7 +26,7 @@ const userName = computed(() => {
       <h1 class="text-2xl sm:text-3xl font-bold">Dashboard</h1>
       <p class="text-muted-foreground mt-1">
         Willkommen <span
-          class="font-bold text-indigo-500 hover:text-indigo-600 hover:drop-shadow-indigo-500 transition-all duration-200">{{
+          class="font-bold text-indigo-500 hover:text-indigo-600 hover:drop-shadow-indigo-800 transition-all duration-200">{{
             userName }}</span> zurück! Hier ist dein Überblick.
       </p>
     </div>

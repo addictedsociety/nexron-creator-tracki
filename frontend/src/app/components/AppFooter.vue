@@ -11,7 +11,7 @@ import {
 </script>
 <template>
     <footer
-        class="w-full bg-background border-t text-sm text-muted-foreground rounded-lg shadow-inner shadow-indigo-500/50 dark:shadow-indigo-800/20">
+        class="w-full bg-background border-t text-sm text-muted-foreground rounded-lg shadow-inner shadow-indigo-800 dark:shadow-indigo-800/20">
         <div class="max-w-screen-xl mx-auto px-4 sm:px-6 py-4">
             <!-- Mobile: Spalten untereinander | ab md: nebeneinander -->
             <div class="flex flex-col md:flex-row gap-6 md:gap-0 md:divide-x md:divide-border">

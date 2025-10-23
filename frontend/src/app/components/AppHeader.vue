@@ -18,7 +18,7 @@ const isActive = (p: string) => computed(() => route.path === p);
 </script>
 <template>
     <header
-        class="border-b border-border rounded-lg shadow-lg shadow-indigo-500/50 sticky top-0 z-40 bg-background/60 backdrop-blur">
+        class="border-b border-border rounded-lg shadow-lg shadow-indigo-800 sticky top-0 z-40 bg-background/60 backdrop-blur">
         <div class="mx-auto sm:w-3/4 px-4 sm:px-6 py-2 flex items-center justify-between gap-4">
 
             <RouterLink to="/" class="flex items-center gap-2 shrink-0">

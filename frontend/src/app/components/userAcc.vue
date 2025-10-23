@@ -104,7 +104,7 @@ onBeforeUnmount(() => {
              h-[70vh] sm:h-auto
              overflow-hidden p-0
              rounded-lg sm:rounded-xl
-             shadow-lg shadow-indigo-500/50
+             shadow-lg shadow-indigo-800
              justify-center">
       <!-- eigener Scroller nur für den Inhalt -->
       <div class="max-h-full overflow-y-auto h-[85vh] sm:h-[70vh]">

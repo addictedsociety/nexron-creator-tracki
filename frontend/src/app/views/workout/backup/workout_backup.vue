@@ -258,7 +258,7 @@ const userName = computed(() => {
     <div class="text-center sm:text-left">
       <h1 class="text-2xl sm:text-3xl font-bold">Workout</h1>
       <p class="text-muted-foreground mt-1">Hey <span
-          class="font-bold text-indigo-500 hover:text-indigo-600 hover:drop-shadow-indigo-500 transition-all duration-200">{{
+          class="font-bold text-indigo-500 hover:text-indigo-600 hover:drop-shadow-indigo-800  transition-all duration-200">{{
           userName }}</span>, starte dein Training oder wähle ein Workout-Template.</p>
     </div>
 

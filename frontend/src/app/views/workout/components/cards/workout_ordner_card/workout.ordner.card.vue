@@ -3,7 +3,7 @@
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Folder } from 'lucide-vue-next';
 
-import workout_ordner_card_create from './components/workout_ordner_card_create.vue';
+import workout_ordner_card_create from './components/workout.ordner.card.create.vue';
 
 // Emits für Aktionen (optional)
 const emit = defineEmits<{
@@ -19,7 +19,7 @@ const emit = defineEmits<{
 </script>
 
 <template>
-  <Card class="w-full border-primary shadow-lg shadow-indigo-500/20 gap-1">
+  <Card class="w-full border-primary shadow-lg shadow-indigo-800 gap-1">
 
     <CardHeader>
       <CardTitle class="text-lg sm:text-xl flex items-center justify-between">

@@ -14,7 +14,7 @@ const w = useWorkout()
 </script>
 
 <template>
-  <Card class="w-full border-primary shadow-lg shadow-indigo-500/20" v-if="w.isWorkoutActive">
+  <Card class="w-full border-primary shadow-lg shadow-indigo-800" v-if="w.isWorkoutActive">
     <CardHeader>
       <div class="flex items-center justify-between">
         <div>
